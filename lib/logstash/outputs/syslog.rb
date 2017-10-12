@@ -169,6 +169,7 @@ class LogStash::Outputs::Syslog < LogStash::Outputs::Base
       syslog_msg = "<#{priority.to_s}>#{timestamp} #{sourcehost} #{appname}"
       if procid != "-" or procid != ""
         syslog_msg += "[#{procid}]"
+      end
       syslog_msg += ": #{message}"
     else
       msgid = event.sprintf(@msgid)
